@@ -3,8 +3,8 @@ M = {}
 
 function M.save_me()
   vim.cmd('noh')
-  local topline = vim.fn.getwininfo(vim.api.nvim_get_current_win())[1].topline
   if vim.api.nvim_eval('&modified') == 1 then return end
+  local topline = vim.fn.getwininfo(vim.api.nvim_get_current_win())[1].topline
   vim.cmd('e')
   vim.fn.winrestview({ topline = topline })
 end

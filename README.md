@@ -7,7 +7,7 @@ Save you from both:
 
 ## Usage
 
-Only one command. Work on modified buffer.
+Only one command. Work on "un-saved" buffer.
 
 ```lua
 NeoClear
@@ -16,5 +16,5 @@ NeoClear
 example
 
 ```lua
-vim.keymap.set('n', '<C-C>', 'NeoClear', { noremap = true, silent = true, nowait = true })
+vim.keymap.set('n', '<C-C>', function() vim.cmd('NeoClear') end, { noremap = true, silent = true, nowait = true })
 ```

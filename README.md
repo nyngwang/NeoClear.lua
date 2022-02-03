@@ -13,7 +13,7 @@ https://user-images.githubusercontent.com/24765272/152267526-7ebe6876-cf89-40ed-
 
 - Only one command, since this is a temporary patch.
 - Can be run on "un-saved" buffer without error(as `silent!`)
-  - but you still need to save the buffer to solve the folding bug.
+  - but you need to leave your buffer unmodified(save or undo, like the DEMO) before running `NeoClear` to solve the first problem.
 - Leave window-view intact after run.
 
 ## Usage

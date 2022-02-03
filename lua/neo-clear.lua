@@ -11,7 +11,7 @@ end
 
 local function setup_vim_commands()
   vim.cmd [[
-    command! NeoSaver lua require'neo-clear'.save_me()
+    command! NeoClear lua require'neo-clear'.save_me()
   ]]
 end
 

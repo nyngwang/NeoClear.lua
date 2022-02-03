@@ -1,0 +1,20 @@
+M = {}
+
+
+function M.save_me()
+  vim.cmd('noh')
+  local topline = vim.fn.getwininfo(vim.api.nvim_get_current_win())[1].topline
+  if vim.api.nvim_eval('&modified') == 1 then return end
+  vim.cmd('e')
+  vim.fn.winrestview({ topline = topline })
+end
+
+local function setup_vim_commands()
+  vim.cmd [[
+    command! NeoSaver lua require'neo-clear'.save_me()
+  ]]
+end
+
+setup_vim_commands()
+
+return M

@@ -4,7 +4,7 @@ M = {}
 function M.save_me()
   vim.cmd('noh')
   vim.fn.timer_stopall()
-  if vim.api.nvim_eval('&modified') == 1 or vim.fn.bufname() == '' then return end
+  if vim.api.nvim_eval('&modified') == 1 or vim.bo.buftype == 'nofile' then return end
   local topline = vim.fn.getwininfo(vim.api.nvim_get_current_win())[1].topline
   vim.cmd('e')
   vim.fn.winrestview({ topline = topline })

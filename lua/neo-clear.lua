@@ -7,9 +7,9 @@ function M.save_me()
   if vim.api.nvim_eval('&modified') == 1
     or vim.bo.buftype == 'nofile'
     or vim.fn.bufname() == '' then return end
-  local topline = vim.fn.getwininfo(vim.api.nvim_get_current_win())[1].topline
+  local view = vim.fn.winsaveview()
   vim.cmd('e')
-  vim.fn.winrestview({ topline = topline })
+  vim.fn.winrestview(view)
 end
 
 local function setup_vim_commands()

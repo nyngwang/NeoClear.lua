@@ -17,6 +17,7 @@ local function save_me()
     cus_fn() end
   vim.cmd('e')
   vim.fn.winrestview(view)
+  vim.cmd("echo ''")
 end
 
 -------------------------------------------------------------------------------------------------------

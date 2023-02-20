@@ -1,21 +1,6 @@
 M = {}
 -------------------------------------------------------------------------------------------------------
 local list_command_fn = {}
-local last_input = nil
-
-
-local function save_me()
-  vim.cmd('noh')
-  vim.fn.timer_stopall()
-  if vim.api.nvim_eval('&modified') == 1
-    or vim.bo.buftype == 'nofile'
-    or vim.fn.bufname() == '' then return end
-  local view = vim.fn.winsaveview()
-  for _, cus_fn in ipairs(list_command_fn) do
-    cus_fn() end
-  vim.fn.winrestview(view)
-  vim.cmd("echo ''")
-end
 
 
 -------------------------------------------------------------------------------------------------------
@@ -26,15 +11,17 @@ function M.setup(opt)
 end
 
 
-function M.save_me()
-  save_me()
+function M.neo_clear()
+  vim.cmd('noh')
+  vim.fn.timer_stopall()
+  for _, cus_fn in ipairs(list_command_fn) do
+    cus_fn()
+  end
 end
 
 
 local function setup_vim_commands()
-  vim.cmd [[
-    command! NeoClear lua require'neo-clear'.save_me()
-  ]]
+  vim.api.nvim_create_user_command('NeoClear', M.neo_clear, {})
 end
 setup_vim_commands()
 

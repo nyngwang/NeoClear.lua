@@ -14,11 +14,6 @@ local function save_me()
   for _, cus_fn in ipairs(list_command_fn) do
     cus_fn() end
   vim.fn.winrestview(view)
-  -- fix folding https://github.com/nvim-treesitter/nvim-treesitter/issues/1424
-  if vim.fn.mode() == 'n' and vim.bo.modifiable then
-    vim.cmd([[silent! normal! >><<]])
-    vim.cmd('silent! w')
-  end
   vim.cmd("echo ''")
 end
 

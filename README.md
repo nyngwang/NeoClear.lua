@@ -1,6 +1,8 @@
 NeoClear.lua
 -----
 
+## deprecated: the upstream problem has been fixed: https://github.com/neovim/neovim/issues/14977.
+
 Save you from both:
 - the tree-sitter bug on folding, see: https://github.com/nvim-treesitter/nvim-treesitter/issues/2439
 - the "how to clear the last highlight qq" problem
